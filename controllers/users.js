@@ -16,6 +16,7 @@ const getAllUsers = (req, res) => {
 
 const getUser = (req, res) => {
   User.findById(req.params.userId)
+    .orFail(new Error('NotFound'))
     .then((user) => res.send({ data: user }))
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -48,6 +49,7 @@ const updateUserInfo = (req, res) => {
     new: true,
     runValidators: true,
   })
+    .orFail(new Error('NotFound'))
     .then((user) => res.send({ data: user }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -69,6 +71,7 @@ const updateAvatar = (req, res) => {
     runValidators: true,
     new: true,
   })
+    .orFail(new Error('NotFound'))
     .then((user) => res.send({ data: user }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -83,5 +86,6 @@ const updateAvatar = (req, res) => {
     });
 };
 
-
-module.exports = { getAllUsers, getUser, createUser, updateUserInfo, updateAvatar };
+module.exports = {
+  getAllUsers, getUser, createUser, updateUserInfo, updateAvatar,
+};

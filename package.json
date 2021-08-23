@@ -2,7 +2,7 @@
   "name": "express-mesto",
   "version": "1.0.0",
   "description": "## Директории",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npx eslint .",
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/intel-96/express-mesto.git"
   },
-  "author": "",
+  "author": "Kirill Raskopin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/intel-96/express-mesto/issues"
